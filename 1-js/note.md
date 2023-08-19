@@ -519,7 +519,7 @@ In most cases, the value of `this` is determined by how a function is called (ru
 function foo() {
   console.log(this);
 }
-foo(); // window
+foo(); // window (non strict mode) or undefined (strict mode)
 ```
 
 ### _this_ keyword in normal functions with bind, call, apply
