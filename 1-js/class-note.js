@@ -100,6 +100,7 @@ const add = (x, y) => {
 const add = (x, y) => (x > y ? x + y : x - y); // maintability
 const add = (x, y) => x + y;
 
+const add = (x, y) => ({ x, y, result: x + y });
 // annomous function 匿名函数
 
 // shallow copy 浅拷贝 deep copy 深拷贝
@@ -151,3 +152,148 @@ function checkscope() {
   return a;
 }
 checkscope();
+
+const object = {
+  message: 'Hello, World!',
+
+  getMessage() {
+    const message = 'Hello, Earth!';
+    return this.message;
+  },
+};
+
+const object = {
+  message: 'Hello, World!',
+
+  getMessage: function () {
+    const message = 'Hello, Earth!';
+    return this.message;
+  },
+};
+
+const object = {
+  who: 'World',
+
+  greet() {
+    return `Hello, ${this.who}!`;
+  },
+
+  farewell: () => {
+    return `Goodbye, ${this.who}!`;
+  },
+};
+
+// object literal
+const object = new Object();
+
+object.who = 'World';
+object.greet = function () {};
+object.farewell = () => {};
+
+bar();
+
+const object = function () {
+  const bar = () => {};
+};
+
+const object = {
+  who: 'mason',
+  cb() {
+    console.log(`Hello, ${this.who}!`);
+  },
+};
+
+function foo(cb) {
+  cb();
+}
+
+const bar = object.cb;
+bar();
+foo(bar); // ??
+object.cb(); // ??
+
+遍历;
+
+便利;
+
+reducer;
+
+const fruits = ['apple', 'pear'];
+const newFruits = [];
+for (let index = 0; index < fruits.length; index++) {
+  const newFruit = { fruit: fruits[index], price: 10 };
+  newFruits.push(newFruit);
+}
+
+// 去重 - Set
+
+const set = new Set();
+
+// pascal case
+
+// instance 实例
+
+// prototype chain
+
+// const { getName } = cat;
+// const getName = cat.getName;
+
+class Pet {
+  constructor(name) {
+    this.name = name;
+  }
+
+  getName() {
+    return this.name;
+  }
+}
+
+const cat = new Pet('Fluffy');
+
+console.log(cat.getName()); // Fluffy
+
+const { getName } = cat;
+const newGetName = () => {
+  cat.getName();
+};
+// .bind
+console.log(getName()); // Fluffy
+
+// thread 线程 -> JS 单线程 -> 一次只能做一件事情
+
+// 异步 Asynchronous - 非阻塞 Non-blocking
+// 同步 Synchronous - 阻塞 Blocking
+
+// 事件 - event
+
+// callback 回调函数
+
+// Web API
+
+// Event loop 事件循环
+
+function foo() {
+  console.log('foo'); // [1005ms]
+} // [1ms]
+function runFor1Sec() {
+  // a for loop or while loop or a heavy computing logic which requires 1 sec to finish
+} // [2ms]
+setTimeout(foo, 0); // [3ms] -> 事件的注册
+runFor1Sec(); // [1003ms]
+console.log('hello'); // [1004ms]
+
+// GEC - Global Execution Context
+// FEC - Function Execution Context
+// Call stack 调用栈 (stack -> First In Last Out)
+// [     ]
+// [     ]
+// [     ]
+// [ GEC ]
+
+// Web API
+// setTimeout 0ms -> foo [3ms]
+
+// Callback queue
+// [foo] [3ms]
+
+// Event loop
