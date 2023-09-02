@@ -1,0 +1,43 @@
+
+/--- ROOT level ---/
+-- package.json
+-- package-lock.json
+-- node-modules/
+-- src/
+  |-- index.js 入口文件 (app.js, server.js)
+  |-- routes/ （包含整个server所有的路由 router）
+    |-- user(s).js (user(s).router.js)
+    |-- task.js
+    |-- index.js (整合所有路径)
+  |-- controllers/ (*负责做逻辑处理*， 做逻辑关联的，数据验证)
+    |-- user(s).js (user(s).controller.js)
+    |-- task.js
+  |-- models/ (数据模型) （数据库操作）CRUD， ORM(object relational mapping)
+    |-- User.js (User.model.js) (user.js)
+    |-- Task.js
+  |-- middleware/
+    |-- cors
+    |-- errorHandling
+  |-- utils/ (utilities)
+    |-- helper function
+    |-- db connection
+
+小: routes 和 controllers 合并
+大: services （从controller里拆出来）
+business logic
+
+-- src/
+  |-- index.js (入口文件)
+  |-- routes.js
+  |-- users/
+    |-- user.model.js
+    |-- user.controller.js
+    |-- user.router.js
+    |-- user.service.js
+  |-- tasks/
+    |-- ...
+
+
+
+
+

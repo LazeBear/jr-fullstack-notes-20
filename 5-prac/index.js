@@ -1,18 +1,29 @@
-//三种dependencies：dependencies，devDependencies，global dependencies
-//基本不用全局安装了（-g），除了CLI，create-react-app就是一种cli
-//不用全局安装的一个原因是npx，在cli之前加上npx就不用-g安装了。比如：npx create-react-app
-//不用全局安装的另一个原因是，全局安装是装在电脑里，不是项目里，package.json没有全局包
-//  所以别人下载你的代码不知道你装了什么全局包，不适合team work
-
 const express = require('express');
-const cors = require('cors');
+// const cors = require('cors');
 const app = express();
 const router = require('./router');
 
-app.use(cors());
-app.use(express.json());
+const cors = (req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*'); // wildcard
+  res.setHeader('Access-Control-Allow-Headers', '*');
+  res.setHeader('Access-Control-Allow-Methods', '*');
+  next();
+};
+
+// app.use(cors());
+app.use(express.json()); // body-parser
+app.use(cors);
+// app.use('/v1', router);
+// router.get('/tasks', routeHandler);
+// GET /v1/tasks
 app.use(router);
 
 app.listen(3000, () => {
   console.log('listening on 3000');
 });
+
+// A.com(server) -> actual data (NO CORS headers)
+// B.com -> A.com (CORS issue)
+// C.com(server) -> A.com (server)
+// B.com -> C.com (include CORS header)
+// cors-anywhere
