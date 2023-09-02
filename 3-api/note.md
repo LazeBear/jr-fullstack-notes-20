@@ -116,3 +116,14 @@ sequence diagram
 local, dev, staging, production
 
 flag
+
+cli
+command line interface
+
+create-react-app cli
+
+npx
+
+npm run {script}
+
+debug
