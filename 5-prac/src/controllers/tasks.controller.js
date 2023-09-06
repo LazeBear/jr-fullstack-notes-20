@@ -17,6 +17,47 @@ const tasks = [
 ];
 let id = 4;
 
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *    Task:
+ *      type: object
+ *      properties:
+ *        id:
+ *          type: integer
+ *          description: The task ID.
+ *          example: 1
+ *        description:
+ *          type: string
+ *          description: The task description
+ *        done:
+ *          type: boolean
+ *          description: The task status
+ */
+
+/**
+ * @swagger
+ * /tasks:
+ *  get:
+ *    tags: [Tasks]
+ *    summary: Returns the list of all the tasks
+ *    parameters:
+ *      - in: query
+ *        name: description
+ *        schema:
+ *          type: string
+ *        description: The task description
+ *    responses:
+ *      200:
+ *        description: The list of the tasks
+ *        content:
+ *         application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#/components/schemas/Task'
+ */
 const getAllTasks = (req, res) => {
   const { description } = req.query;
   if (description) {

@@ -1,0 +1,16 @@
+mongodb -> no-SQL
+
+SQL (structured query language)
+relational database 关系型数据库
+MySQL
+PostgreSQL
+SQLite
+RDS
+
+
+no-SQL
+非关系型数据库
+document-oriented -> mongodb
+key-value -> redis
+graph-oriented -> neo4j 图
+column-family -> cassandra
