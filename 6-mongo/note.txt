@@ -14,3 +14,111 @@ document-oriented -> mongodb
 key-value -> redis
 graph-oriented -> neo4j 图
 column-family -> cassandra
+
+1:1
+student : address -> 1 : 1
+address : student -> 1 : 1
+
+1:M
+student : address -> 1 : M (N)
+address : student -> 1 : 1
+
+M:N
+student : address -> 1 : M
+address : student -> 1 : N
+
+
+students collection
+denormalization
+[
+  {
+    _id: 1,
+    name: "mason",
+    addresses: [
+      {
+        _id: "A1",
+        city: "sydney",
+        postcode:4000
+      },
+      {
+        _id: "A2",
+        city: "melbourne",
+        postcode: 3000
+      }
+    ]
+  },
+  {
+    _id: 2,
+    name: "jason",
+    addresses: [
+      {
+        _id: "A1",
+        city: "sydney",
+        postcode:4000
+      },
+      {
+        _id: "A2",
+        city: "melbourne",
+        postcode: 3000
+      }
+    ]
+  }
+]
+
+
+students
+[
+  {
+    _id: 1,
+    name: "mason",
+    addresses: [
+      {
+        _id: "A1",
+        city: "sydney",
+      },
+      {
+        _id: "A2",
+        city: "melbourne",
+      }
+    ]
+  },
+  {
+    _id: 2,
+    name: "jason",
+    addresses: [
+      {
+        _id: "A1",
+        city: "sydney",
+      },
+      {
+        _id: "A2",
+        city: "melbourne",
+      }
+    ]
+  }
+]
+
+addresses
+[
+  {
+    _id: "A1",
+    city: "sydney",
+    postcode:4000
+  },
+  {
+    _id: "A2",
+    city: "melbourne",
+    postcode: 3000
+  }
+]
+
+sensors, logs
+
+
+MongoDB, every document -> 16MB
+
+A:B -> 1:1
+B:C -> 1:1
+
+MongoDB                                   Server / mongoose                           Client
+BJSON (Binary JSON) -> document -> JSON -> JSON -> mongoose document (object) -> JSON -> JSON

@@ -1,0 +1,16 @@
+
+CMS (Content Management System)
+
+blog
+ecommerece
+
+
+School
+
+users (username, password)
+students (firname, lastname, email, courses)
+courses ( code, description,  students, teacher)
+
+teachers (firname, lastname, email, courses)
+
+ERD (entity relational diagram)
