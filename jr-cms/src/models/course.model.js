@@ -18,5 +18,15 @@ module.exports = model(
       type: String,
       default: 'Course description',
     },
+    // student: {
+    //   type: Schema.Types.ObjectId,
+    //     ref: 'Student',
+    // },
+    students: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Student',
+      },
+    ],
   })
 );

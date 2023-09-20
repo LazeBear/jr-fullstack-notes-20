@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const Joi = require('joi');
 
 const studentSchema = new Schema(
   {
@@ -12,7 +13,24 @@ const studentSchema = new Schema(
     },
     email: {
       type: String,
+      validate: [
+        {
+          validator: (email) => {
+            // regex
+            // Joi, yup, validator.js express-validator
+            return Joi.string().email().validate(email).error === undefined;
+          },
+          // return false -> invalid -> return error msg
+          msg: 'Invalid email format',
+        },
+      ],
     },
+    courses: [
+      {
+        type: String,
+        ref: 'Course',
+      },
+    ],
   },
   {
     timestamps: true,
