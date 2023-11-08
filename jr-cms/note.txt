@@ -14,3 +14,51 @@ courses ( code, description,  students, teacher)
 teachers (firname, lastname, email, course)
 
 ERD (entity relational diagram)
+
+
+加密 (encrypt) - 解密(decrypt)
+x -> X
+X -> x
+
+哈希 （hash）
+x -> Y
+Y !-> x
+
+Y -> x
+Y1 -> x1
+
+salt (random string)
+register
+x + salt1 -> hash -> Y1 (salt1)
+login
+x' + salt1 -> hash -> Y1'
+x === x' -> Y1 === Y1'
+
+bcrypt
+
+
+RBAC role based access control
+ABAC attribute based access control
+
+Admin
+Reception
+
+
+
+
+master -> production code
+dev environment
+1 day
+staging environment
+1 day
+production environment
+
+
+feature-a ---> master
+PR -> MERGE -> master
+CI + reviewer approved -> PR approved -> ready to be merged
+
+CI/CD
+
+test party
+
