@@ -1,0 +1,28 @@
+unit test 单元测试 - jest, mocha, jasmine
+integration test 集成测试 - supertest, selenium
+e2e test (end to end) - selenium, cypress
+
+
+const abc = require('xx');
+function(xxx, callback fn) {
+  abc();
+  // send ajax request
+  return yyy;
+}
+
+unit test with mock
+
+
+QA (tester)
+
+
+black box testing
+white box testing
+
+test coverage
+
+/middleware/__tests__/authGuard.test.js
+
+src/__tests__/**
+
+.spec

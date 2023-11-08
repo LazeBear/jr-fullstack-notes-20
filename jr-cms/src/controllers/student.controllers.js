@@ -45,7 +45,7 @@ const addStudent = async (req, res, next) => {
   // const student = new Student(req.body);
   // try {
   await student.save();
-  res.json(student);
+  res.status(201).json(student);
   // } catch (e) {
   //   console.log(e);
   //   next(e);
