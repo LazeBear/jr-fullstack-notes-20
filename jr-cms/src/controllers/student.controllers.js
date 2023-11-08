@@ -52,15 +52,27 @@ const addStudent = async (req, res, next) => {
   //   // res.send(400);
   // }
 };
+
+// GET /v1/students?page=1&pageSize=100
 const getAllStudents = async (req, res) => {
+  const { page = 1, pageSize = 100 } = req.query;
+
+  // validate query with joi
+
   // db.students.find()
   // Query chain
   // Student.find().sort().limit().filter()
   // Student.find() -> Query
   // Query.sort() -> Query
   // builder pattern
-  const students = await Student.find().exec();
+
+  const limit = pageSize * 1;
+  const skip = limit * Math.max(page * 1 - 1, 0);
+
+  const students = await Student.find().limit(limit).skip(skip).exec();
   res.json(students);
+  // res.json({data: students, pagination: {page, pageSize, totalPage: xxx}})
+  // infinite scroll
 };
 const getStudentById = async (req, res) => {
   const { id } = req.params;
